@@ -1,5 +1,5 @@
 {
-  "name": "fadosProduccions/fullCalendarBundle",
+  "name": "fados-produccions/full-calendar-bundle",
   "version":"1.0.0-alpha",
   "type": "symfony-bundle",
   "description": "FullCalendar integration in Symfony2",
