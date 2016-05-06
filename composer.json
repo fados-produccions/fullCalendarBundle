@@ -23,5 +23,10 @@
  "autoload": {
     "psr-0": { "fadosProduccions\\fullCalendarBundle\\": "" }
   },
-  "target-dir":"fadosProduccions/fullCalendarBundle"
+  "target-dir":"fadosProduccions/fullCalendarBundle",
+  "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
