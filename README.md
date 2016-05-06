@@ -582,12 +582,21 @@ This file is in the fadosProduccions\fullCalendarBundle\Resources\Config\doctrin
 
 This allow us to create and entity that extends to baseEvent with fields mapped to the database, this mapping is very important <mapped-superclass name="fadosProduccions\fullCalendarBundle\Entity\Event">, bind the entity with the database mapping.
 
-When you execute
+Before execute this:
 
 ```
 php app/console doctrine:schema:update --force
 ```
-the entity is created in the database with this field.
+test if you have in your config.yml the auto_mapping: true
+
+```
+orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+```
+
+the entity is created in the database with the fields mapped.
 
 Routing
 -------
