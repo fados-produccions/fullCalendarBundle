@@ -38,7 +38,7 @@ Usage
 The class parameter contains the Entity that stores the events, this entity must extends from BaseEvent.
 Create an entity:
 
-<?php 
+``` php
 
 namespace AppBundle\Entity;
  
