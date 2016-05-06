@@ -11,7 +11,6 @@ Install
 php composer.phar require fados-produccions/full-calendar-bundle dev-master
 ```
 
-
 register he bundle inthe appKernel.php
 
 ```php
@@ -53,11 +52,6 @@ orm:
 ```
 
 depends on your configuration file config.yml
-
-
-```
-
-```
 
 The class parameter contains the Entity that stores the events, this entity must extends from BaseEvent.
 Create an entity:
