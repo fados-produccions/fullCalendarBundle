@@ -4,6 +4,24 @@ We want to build a distribuible bundle for Symfony 2 that allow us to show event
 
 ## How to use it
 
+Install
+-------
+
+```
+php composer.phar require fados-produccions/full-calendar-bundle dev-master
+```
+
+the bundle need a resource, use this command
+
+```
+php app/console assets:install web/
+```
+register he bundle inthe appKernel.php
+
+```php
+   new fadosProduccions\fullCalendarBundle\fullCalendarBundle(),
+```
+
 Usage
 -----
 
