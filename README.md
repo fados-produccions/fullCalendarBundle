@@ -11,15 +11,16 @@ Install
 php composer.phar require fados-produccions/full-calendar-bundle dev-master
 ```
 
-the bundle need a resource, use this command
 
-```
-php app/console assets:install web/
-```
 register he bundle inthe appKernel.php
 
 ```php
    new fadosProduccions\fullCalendarBundle\fullCalendarBundle(),
+```
+the bundle need a resource, use this command
+
+```
+php app/console assets:install web/
 ```
 
 Usage
