@@ -20,6 +20,11 @@ register he bundle inthe appKernel.php
 
 This bundle has a dependency on the FOSJsRouting bundle to expose the calendar AJAX event loader route. Please ensure that the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle is installed and configured before continuing.
 
+
+
+Usage
+-----
+
 Configure you config.yml
 
 ```
@@ -27,14 +32,6 @@ full_calendar:
      class_manager: appBundle/Entity/CompanyEvents
 ```
 
-the bundle need a resource, use this command
-
-``` php
-php app/console assets:install web/
-```
-
-Usage
------
 The class parameter contains the Entity that stores the events, this entity must extends from BaseEvent.
 Create an entity:
 
