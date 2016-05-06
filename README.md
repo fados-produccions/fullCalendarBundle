@@ -32,6 +32,33 @@ full_calendar:
      class_manager: appBundle/Entity/CompanyEvents
 ```
 
+In the config.yml you need to put mappings by this way
+
+```
+ orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+              default:
+                mappings:
+                  fullCalendarBundle: ~
+```
+
+or
+
+```
+orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+```
+
+depends on your configuration file config.yml
+
+
+```
+
+```
+
 The class parameter contains the Entity that stores the events, this entity must extends from BaseEvent.
 Create an entity:
 
