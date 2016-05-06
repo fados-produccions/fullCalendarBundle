@@ -31,7 +31,7 @@ This bundle has a dependency on the FOSJsRouting bundle to expose the calendar A
 Configure you config.yml
 ```
 full_calendar:
-     class: appBundle/Entity/CompanyEvents
+     class_manager: appBundle/Entity/CompanyEvents
 ```
 The class parameter contains the Entity that stores the events, this entity must extends from BaseEvent.
 
