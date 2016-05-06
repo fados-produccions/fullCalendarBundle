@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="fadosProduccions\fullCalendarBundle\Entity\Event">
+
+        <field name="title" column="title" type="string" length="255" nullable="true"/>
+        <field name="url" column="url" type="string" length="255" nullable="true"/>
+        <field name="bgColor" column="bgColor" type="string" length="10" nullable="true"/>
+        <field name="cssClass" column="cssClass" type="string" length="10" nullable="true"/>
+        <field name="startDatetime" column="startDatetime" type="datetime" nullable="false"/>
+        <field name="endDatetime" column="endDatetime" type="datetime" nullable="false"/>
+        <field name="allDay" column="allDay" type="boolean"/>
+    </mapped-superclass>
+
+</doctrine-mapping>

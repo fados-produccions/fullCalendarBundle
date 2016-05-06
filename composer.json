@@ -1,0 +1,26 @@
+{
+  "name": "fadosProduccions/fullCalendarBundle",
+  "version":"1.0.0-alpha",
+  "type": "symfony-bundle",
+  "description": "FullCalendar integration in Symfony2",
+  "keywords": ["fullCalendar"],
+  "homepage": "https://github.com/fados-produccions/fullcalendarbundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Albert Juhé",
+      "email": "ajuhe@fadosProduccions.com",
+      "homepage": "https://github.com/fados-produccions/fullcalendarbundle"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "symfony/framework-bundle":">=2.3",
+    "friendsofsymfony/jsrouting-bundle": "~1.1",
+    "symfony/symfony":">=2.3"
+  },
+  "autoload": {
+    "psr-4": { "fadosProduccions\\fullCalendarBundle\\": "" }
+  },
+  "target-dir":"fadosProduccions/fullCalendarBundle"
+}

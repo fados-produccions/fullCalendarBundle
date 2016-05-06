@@ -1,0 +1,10 @@
+services:
+  fados.calendar.service:
+       class:  fadosProduccions\fullCalendarBundle\Services\CalendarManagerRegistry
+       arguments: ["@doctrine","@service_container"]
+  app.fados.twig_extension:
+       class:  fadosProduccions\fullCalendarBundle\Twig\fullCalendarExtension
+       public: false
+       tags:
+         - { name: twig.extension }
+
