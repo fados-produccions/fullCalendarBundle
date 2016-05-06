@@ -4,20 +4,38 @@ We want to build a distribuible bundle for Symfony 2 that allow us to show event
 
 ## How to use it
 
-Usage
------
+Install
+-------
+
+```
+php composer.phar require fados-produccions/full-calendar-bundle dev-master
+```
+
+
+register he bundle inthe appKernel.php
+
+```php
+   new fadosProduccions\fullCalendarBundle\fullCalendarBundle(),
+```
 
 This bundle has a dependency on the FOSJsRouting bundle to expose the calendar AJAX event loader route. Please ensure that the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle is installed and configured before continuing.
 
+
+
+Usage
+-----
+
 Configure you config.yml
+
 ```
 full_calendar:
-     class: appBundle/Entity/CompanyEvents
+     class_manager: appBundle/Entity/CompanyEvents
 ```
+
 The class parameter contains the Entity that stores the events, this entity must extends from BaseEvent.
+Create an entity:
 
 ``` php
-<?php 
 
 namespace AppBundle\Entity;
  
@@ -50,7 +68,7 @@ Register the routing in `app/config/routing.yml`:
 # app/config/routing.yml
 
 fados_fullcalendar:
-    resource: "@fullcalendarbundle/Resources/config/routing.xml"
+    resource: "@fullCalendarBundle/Resources/config/routing.xml"
 ```
 
 Publish the assets:
@@ -66,6 +84,8 @@ Stylesheet:
 Javascript:
 ```
 <script type="text/javascript" src="{{ asset('js/jquery-1.8.1.min.js') }}"></script>
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/init.fullCalendar.js') }}"></script>
