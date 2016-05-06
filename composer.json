@@ -21,6 +21,5 @@
   },
   "autoload": {
     "psr-4": { "fadosProduccions\\fullCalendarBundle\\": "" }
-  },
-  "target-dir":"fadosProduccions/fullCalendarBundle"
+  }
 }
