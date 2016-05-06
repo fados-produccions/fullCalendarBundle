@@ -290,25 +290,36 @@ The composer.json file should include the following metadata
 
 ```
 {
-  "name": "fadosProduccions/fullcalendarbundle",
+  "name": "fados-produccions/full-calendar-bundle",
+  "version":"1.0.0",
   "type": "symfony-bundle",
   "description": "FullCalendar integration in Symfony2",
   "keywords": ["fullCalendar"],
-  "homepage": "https://www.fados-produccions.com",
+  "homepage": "https://github.com/fados-produccions/fullCalendarbundle",
   "license": "MIT",
   "authors": [
     {
-      "name": "Fadosproduccions",
-      "email": "info@fadosProduccions.com",
-      "homepage": "http://www.fados-produccions.com/"
- }
+      "name": "Albert Juhé",
+      "email": "ajuhe@fadosProduccions.com",
+      "homepage": "https://github.com/fados-produccions/fullCalendarbundle"
+    }
   ],
-  "require": {
-    "php": ">=5.4.0"
- },
-  "autoload": {
-    "psr-4": { "fadosProduccions\\fullcalendarbundle\\": "" }
-  }
+ "minimum-stability": "dev",
+ "require": {
+        "symfony/twig-bundle": "~2.1|~3.0",
+        "symfony/framework-bundle": "~2.1|~3.0",
+        "friendsofsymfony/jsrouting-bundle": "~1.1",
+        "doctrine/collections": ">=1.0"
+  },
+ "autoload": {
+    "psr-0": { "fadosProduccions\\fullCalendarBundle\\": "" }
+  },
+  "target-dir":"fadosProduccions/fullCalendarBundle",
+  "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
 ```
 
