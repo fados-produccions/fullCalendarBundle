@@ -1,6 +1,6 @@
 {
   "name": "fadosProduccions/fullCalendarBundle",
-  "version":"1.0.0-alpha",
+  "version":"1.0.0",
   "type": "symfony-bundle",
   "description": "FullCalendar integration in Symfony2",
   "keywords": ["fullCalendar"],
@@ -13,6 +13,7 @@
       "homepage": "https://github.com/fados-produccions/fullcalendarbundle"
     }
   ],
+  "minimum-stability": "stable",
   "require": {
     "php": ">=5.4.0",
     "symfony/framework-bundle":">=2.3",
