@@ -68,7 +68,7 @@ Register the routing in `app/config/routing.yml`:
 # app/config/routing.yml
 
 fados_fullcalendar:
-    resource: "@fullcalendarbundle/Resources/config/routing.xml"
+    resource: "@fullCalendarBundle/Resources/config/routing.xml"
 ```
 
 Publish the assets:
