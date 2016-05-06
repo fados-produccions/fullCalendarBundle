@@ -4,13 +4,13 @@
   "type": "symfony-bundle",
   "description": "FullCalendar integration in Symfony2",
   "keywords": ["fullCalendar"],
-  "homepage": "https://github.com/fados-produccions/fullcalendarbundle",
+  "homepage": "https://github.com/fados-produccions/fullCalendarbundle",
   "license": "MIT",
   "authors": [
     {
       "name": "Albert Juhé",
       "email": "ajuhe@fadosProduccions.com",
-      "homepage": "https://github.com/fados-produccions/fullcalendarbundle"
+      "homepage": "https://github.com/fados-produccions/fullCalendarbundle"
     }
   ],
   "require": {
