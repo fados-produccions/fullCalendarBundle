@@ -84,8 +84,6 @@ Stylesheet:
 Javascript:
 ```
 <script type="text/javascript" src="{{ asset('js/jquery-1.8.1.min.js') }}"></script>
-<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/init.fullCalendar.js') }}"></script>
@@ -95,6 +93,39 @@ Then, in the template where you wish to display the calendar, add the following 
 ```
 {{ fullCalendar() }}
 ```   
+
+Page sample:
+
+```
+{% extends 'base.html.twig' %}
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-1.8.1.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/init.fullCalendar.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div id="welcome">
+                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+            </div>
+        </div>
+    </div>
+
+    {{ fullCalendar() }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar.print.css') }}" media="print" />
+{% endblock %}
+```
 ## Calendar Javascript
  
  The file init.fullCalendar.js in the bundles/fullcalendar/js/ contains two routes, the fullcalendar_loadevents route that is triggered when the Calendar is loaded, fullcalendar_resizedate is triggered when resize event date and the fullcalendar_changedate that is trtiggered when a event is moved.
