@@ -5,6 +5,7 @@
   "description": "FullCalendar integration in Symfony2",
   "keywords": ["fullCalendar"],
   "homepage": "https://github.com/fados-produccions/fullCalendarbundle",
+  "language":  "php",
   "license": "MIT",
   "authors": [
     {
