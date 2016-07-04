@@ -28,7 +28,7 @@ Configure you config.yml
 
 ```
 full_calendar:
-     class_manager: appBundle/Entity/CompanyEvents
+     class_manager: AppBundle\Entity\CompanyEvents
 ```
 
 In the config.yml you need to put mappings by this way
