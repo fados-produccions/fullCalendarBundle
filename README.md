@@ -200,7 +200,7 @@ Page sample:
 ```
 You could overwrite this init.calendar.js to fit your needs.
 
-## How to create a Calendar distribuible Bundle
+## How to create a FullCalendar distribuible Bundle from scratch
 
 Create Bundle
 -------------
