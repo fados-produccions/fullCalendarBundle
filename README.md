@@ -11,7 +11,6 @@ Install
 php composer.phar require fados-produccions/full-calendar-bundle dev-master
 ```
 
-
 register he bundle inthe appKernel.php
 
 ```php
@@ -29,8 +28,30 @@ Configure you config.yml
 
 ```
 full_calendar:
-     class_manager: appBundle/Entity/CompanyEvents
+     class_manager: AppBundle\Entity\CompanyEvents
 ```
+
+In the config.yml you need to put mappings by this way
+
+```
+ orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+              default:
+                mappings:
+                  fullCalendarBundle: ~
+```
+
+or
+
+```
+orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+```
+
+depends on your configuration file config.yml
 
 The class parameter contains the Entity that stores the events, this entity must extends from BaseEvent.
 Create an entity:
@@ -84,8 +105,6 @@ Stylesheet:
 Javascript:
 ```
 <script type="text/javascript" src="{{ asset('js/jquery-1.8.1.min.js') }}"></script>
-<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/init.fullCalendar.js') }}"></script>
@@ -95,6 +114,39 @@ Then, in the template where you wish to display the calendar, add the following 
 ```
 {{ fullCalendar() }}
 ```   
+
+Page sample:
+
+```
+{% extends 'base.html.twig' %}
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-1.8.1.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/init.fullCalendar.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div id="welcome">
+                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+            </div>
+        </div>
+    </div>
+
+    {{ fullCalendar() }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar.print.css') }}" media="print" />
+{% endblock %}
+```
 ## Calendar Javascript
  
  The file init.fullCalendar.js in the bundles/fullcalendar/js/ contains two routes, the fullcalendar_loadevents route that is triggered when the Calendar is loaded, fullcalendar_resizedate is triggered when resize event date and the fullcalendar_changedate that is trtiggered when a event is moved.
@@ -148,7 +200,7 @@ Then, in the template where you wish to display the calendar, add the following 
 ```
 You could overwrite this init.calendar.js to fit your needs.
 
-## How to create a Calendar distribuible Bundle
+## How to create a FullCalendar distribuible Bundle from scratch
 
 Create Bundle
 -------------
@@ -238,25 +290,36 @@ The composer.json file should include the following metadata
 
 ```
 {
-  "name": "fadosProduccions/fullcalendarbundle",
+  "name": "fados-produccions/full-calendar-bundle",
+  "version":"1.0.0",
   "type": "symfony-bundle",
   "description": "FullCalendar integration in Symfony2",
   "keywords": ["fullCalendar"],
-  "homepage": "https://www.fados-produccions.com",
+  "homepage": "https://github.com/fados-produccions/fullCalendarbundle",
   "license": "MIT",
   "authors": [
     {
-      "name": "Fadosproduccions",
-      "email": "info@fadosProduccions.com",
-      "homepage": "http://www.fados-produccions.com/"
- }
+      "name": "Albert Juhé",
+      "email": "ajuhe@fadosProduccions.com",
+      "homepage": "https://github.com/fados-produccions/fullCalendarbundle"
+    }
   ],
-  "require": {
-    "php": ">=5.4.0"
- },
-  "autoload": {
-    "psr-4": { "fadosProduccions\\fullcalendarbundle\\": "" }
-  }
+ "minimum-stability": "dev",
+ "require": {
+        "symfony/twig-bundle": "~2.1|~3.0",
+        "symfony/framework-bundle": "~2.1|~3.0",
+        "friendsofsymfony/jsrouting-bundle": "~1.1",
+        "doctrine/collections": ">=1.0"
+  },
+ "autoload": {
+    "psr-0": { "fadosProduccions\\fullCalendarBundle\\": "" }
+  },
+  "target-dir":"fadosProduccions/fullCalendarBundle",
+  "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
 ```
 
@@ -519,12 +582,21 @@ This file is in the fadosProduccions\fullCalendarBundle\Resources\Config\doctrin
 
 This allow us to create and entity that extends to baseEvent with fields mapped to the database, this mapping is very important <mapped-superclass name="fadosProduccions\fullCalendarBundle\Entity\Event">, bind the entity with the database mapping.
 
-When you execute
+Before execute this:
 
 ```
 php app/console doctrine:schema:update --force
 ```
-the entity is created in the database with this field.
+test if you have in your config.yml the auto_mapping: true
+
+```
+orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+```
+
+the entity is created in the database with the fields mapped.
 
 Routing
 -------
