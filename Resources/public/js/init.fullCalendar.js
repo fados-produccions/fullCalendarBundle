@@ -73,6 +73,10 @@ $(function () {
             });
 
         },
+        eventClick: function(calEvent, jsEvent, view) {
+            console.log('Event: ' + calEvent.title);
+            console.log('Event: ' + calEvent.id);
+        },
         editable: true
 
     });
