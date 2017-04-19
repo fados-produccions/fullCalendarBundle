@@ -197,7 +197,14 @@ Page sample:
             });
 
         },
+        eventClick: function(calEvent, jsEvent, view) {
+            console.log('Event: ' + calEvent.title);
+            console.log('Event: ' + calEvent.id);
+        },
 ```
+
+eventClick is the event triggered when you cluck and event.
+
 You could overwrite this init.calendar.js to fit your needs.
 
 ## How to create a FullCalendar distribuible Bundle from scratch
