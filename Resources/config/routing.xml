@@ -4,15 +4,15 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="fullcalendar_loadevents" pattern="/fullcalendar/load">
+    <route id="fullcalendar_loadevents" path="/fullcalendar/load">
         <default key="_controller">fullCalendarBundle:Calendar:load</default>
         <option key="expose">true</option>
     </route>
-    <route id="fullcalendar_changedate" pattern="/fullcalendar/change">
+    <route id="fullcalendar_changedate" path="/fullcalendar/change">
         <default key="_controller">fullCalendarBundle:Calendar:change</default>
         <option key="expose">true</option>
     </route>
-    <route id="fullcalendar_resizedate" pattern="/fullcalendar/resize">
+    <route id="fullcalendar_resizedate" path="/fullcalendar/resize">
         <default key="_controller">fullCalendarBundle:Calendar:resize</default>
         <option key="expose">true</option>
     </route>
